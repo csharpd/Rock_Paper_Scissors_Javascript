@@ -11,6 +11,8 @@ function Game(player1, player2) {
   this.player1 = player1;
   this.player2 = player2;
 
+  this.players = [this.player1,this.player2]
+
   this.pairs = {
     rock: {scissors: "crushes", lizard: "crushes"},
     scissors: {paper: "cuts", lizard: "decapitates"},
@@ -34,10 +36,11 @@ Game.prototype.winner = function() {
   }
 };
 
-Game.prototype.victoryMessage = function() {
-  var message = [this.player1.name+"'s", this.player1.pick,
-  this.pairs[this.player1.pick][this.player2.pick],
-  this.player2.name+"'s", this.player2.pick].join(" ");
+
+Game.prototype.victoryMessage = function(winner,loser) {
+  var message = [winner.name+"'s", winner.pick,
+  this.pairs[winner.pick][loser.pick],
+  loser.name+"'s", loser.pick].join(" ");
   return message;
 };
 
