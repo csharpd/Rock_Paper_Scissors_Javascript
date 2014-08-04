@@ -12,11 +12,11 @@ function Game(player1, player2) {
   this.player2 = player2;
 
   this.pairs = {
-    rock: {beats: ["scissors", "lizard"]},
-    scissors: {beats: ["paper", "lizard"]},
-    paper: {beats: ["rock", "spock"]},
-    spock: {beats: ["scissors", "rock"]},
-    lizard: {beats: ["spock", "paper"]}
+    rock: {scissors: "crushes", lizard: "crushes"},
+    scissors: {paper: "cuts", lizard: "decapitates"},
+    paper: {rock: "covers", spock: "disproves"},
+    spock: {scissors: "smashes", rock: "vaporizes"},
+    lizard: {spock: "poisions", paper: "eats"}
 
   };
 };
@@ -26,11 +26,18 @@ Game.prototype.winner = function() {
   if (this.player1.pick == this.player2.pick) {
     return null;
   }
-  if (this.pairs[this.player1.pick].beats.indexOf(this.player2.pick) != -1) {
+  if (this.pairs[this.player1.pick][this.player2.pick]) {
     return this.player1;
   }
   else {
     return this.player2;
   }
+};
+
+Game.prototype.victoryMessage = function() {
+  var message = [this.player1.name+"'s", this.player1.pick,
+  this.pairs[this.player1.pick][this.player2.pick],
+  this.player2.name+"'s", this.player2.pick].join(" ");
+  return message;
 };
 

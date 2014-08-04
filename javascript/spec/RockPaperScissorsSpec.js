@@ -117,6 +117,20 @@ describe("Rock-Paper-Scissors", function() {
         player2.picks('paper');
         expect(game.winner()).toBe(player1);
       });
+
+      it('should lose to rock', function() {
+        player1.picks('lizard');
+        player2.picks('rock');
+        expect(game.winner()).toBe(player2);
+
+      });
+
+      it('should lose to scissors', function() {
+        player1.picks('lizard');
+        player2.picks('scissors');
+        expect(game.winner()).toBe(player2);
+
+      });
     });
 
   });
@@ -126,18 +140,33 @@ describe("Rock-Paper-Scissors", function() {
     describe('any identical picks', function() {
 
       it('should result in no winner', function() {
-        var drawGameResults = ['rock', 'paper', 'scissors'].map(function(x) {
+        var drawGameResults = ['rock', 'paper', 'scissors', 'spock', 'lizard'].map(function(x) {
           player1.picks(x);
           player2.picks(x);
           return game.winner();
         });
 
-        expect(drawGameResults).toEqual([null, null, null]);
+        expect(drawGameResults).toEqual([null, null, null,null, null]);
 
       });
 
     });
 
+  });
+
+  describe('victory messages', function() {
+
+    it('scissors cut paper', function(){
+      player1.picks("scissors");
+      player2.picks("paper");
+      expect(game.victoryMessage()).toEqual("Alex's scissors cuts Bob's paper");
+    });
+
+    it('player2 is the winner', function(){
+      player1.picks("rock");
+      player2.picks("paper");
+      expect(game.victoryMessage()).toEqual("Bob's paper covers Alex's rock");
+    });
   });
 
 });
