@@ -1,7 +1,7 @@
 describe("Rock-Paper-Scissors", function() {
 
   var player1, player2, game;
-  
+
   beforeEach(function() {
     player1 = new Player('Alex');
     player2 = new Player('Bob');
@@ -16,6 +16,13 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('rock');
         player2.picks('scissors');
+        expect(game.winner()).toBe(player1);
+
+      });
+
+      it ('its should beat lizard', function () {
+        player1.picks('rock');
+        player2.picks('lizard');
         expect(game.winner()).toBe(player1);
 
       });
