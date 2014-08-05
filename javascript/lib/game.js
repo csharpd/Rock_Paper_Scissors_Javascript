@@ -1,14 +1,14 @@
 function Game(player1, player2) {
   this.player1 = player1;
   this.player2 = player2;
-
-  this.players = [this.player1,this.player2]
-
-
 };
 
 Game.prototype._isSamePick = function() {
   return this.player1.pick === this.player2.pick;
+};
+
+Game.prototype._winnerWord = function(winner, loser) {
+  return this.PAIRS[winner.pick][loser.pick];
 };
 
 Game.prototype.winner = function() {
@@ -23,10 +23,20 @@ Game.prototype.winner = function() {
   }
 };
 
-Game.prototype.victoryMessage = function(winner,loser) {
-  var message = [winner.name+"'s", winner.pick,
-  this.PAIRS[winner.pick][loser.pick],
-  loser.name+"'s", loser.pick].join(" ");
+Game.prototype.loser = function() {
+  return (this.winner() === this.player1 ? this.player2 : this.player1);
+};
+
+Game.prototype.victoryMessage = function() {
+  var message;
+  if(this.winner()){
+    message = [this.winner().name+"'s", this.winner().pick,
+  this._winnerWord(this.winner(), this.loser()),
+  this.loser().name+"'s", this.loser().pick].join(" ");
+  } else {
+    message = "Draw";
+  }
+
   return message;
 };
 
