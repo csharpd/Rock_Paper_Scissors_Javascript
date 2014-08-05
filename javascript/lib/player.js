@@ -15,3 +15,4 @@ Player.prototype.randomPick = function() {
  var selection = ["rock","paper","scissors","spock","lizard"]
  return selection[Math.floor(Math.random() * selection.length)]
 };
+

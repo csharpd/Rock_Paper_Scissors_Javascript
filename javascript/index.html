@@ -58,7 +58,12 @@
                   p1.picks($(this).data('pick'));
                   p2.picks(p2.randomPick());
                   $('<li>'+ game.victoryMessage()+'</li>').prependTo('#results').slideDown();
+
+                  $('#results li:gt(4)').fadeOut(function() {
+                    $(this).remove();
+                    });
                   });
+
                 });
               });
     </script>
