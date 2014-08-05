@@ -1,6 +1,7 @@
 function Player(name) {
   // 'initialize' method goes here!
   this.name = name;
+  this.score = 0;
 };
 
 Player.prototype.picks = function(pick) {
@@ -15,4 +16,3 @@ Player.prototype.randomPick = function() {
  var selection = ["rock","paper","scissors","spock","lizard"]
  return selection[Math.floor(Math.random() * selection.length)]
 };
-

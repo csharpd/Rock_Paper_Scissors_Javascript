@@ -30,6 +30,7 @@ Game.prototype.loser = function() {
 Game.prototype.victoryMessage = function() {
   var message;
   if(this.winner()){
+    this.winner().score++;
     message = [this.winner().name+"'s", this.winner().pick,
   this._winnerWord(this.winner(), this.loser()),
   this.loser().name+"'s", this.loser().pick].join(" ");
@@ -49,3 +50,5 @@ Game.prototype.PAIRS =
     lizard: {spock: "poisions", paper: "eats"}
 
   };
+
+

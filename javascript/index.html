@@ -40,9 +40,10 @@
       <img src="images/lizard.png" data-pick='lizard'>
       <img src="images/spock.png" data-pick='spock'>
     </section>
+    <h2 id="scores">
+
+    </h2>
       <ul id='results'>
-
-
       </ul>
         <script src='lib/player.js'></script>
         <script src='lib/game.js'></script>
@@ -62,6 +63,9 @@
                   $('#results li:gt(4)').fadeOut(function() {
                     $(this).remove();
                     });
+                    $('#scores').text(p1.name + " score: " + p1.score + " vs " + p2.name + " score: " + p2.score)
+
+
                   });
 
                 });
