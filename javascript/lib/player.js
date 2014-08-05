@@ -10,3 +10,8 @@ Player.prototype.picks = function(pick) {
 Player.prototype.defeats = function(opponent) {
   return Game.prototype.PAIRS[this.pick][opponent.pick]
 };
+
+Player.prototype.randomPick = function() {
+ var selection = ["rock","paper","scissors","spock","lizard"]
+ return selection[Math.floor(Math.random() * selection.length)]
+};
