@@ -1,0 +1,48 @@
+<!doctype>
+<html>
+  <head>
+    <title> Rock Paper Scissors Lizard Spock </title>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <style>
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 15px 0 0 30px;
+    }
+
+    .choices img {
+      width: 15%;
+      margin-right: 2.5%;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: 1s opacity ease;
+    }
+
+    .choices img:hover {
+      opacity: 1;
+    }
+
+
+
+
+
+    </style>
+  </head>
+
+  <body>
+    <h1> Rock Paper Scissors Lizard Spock </h1>
+    <section class='choices'>
+      <img src="images/rock.png" data-pick='rock'>
+      <img src="images/paper.png" data-pick='paper'>
+      <img src="images/scissors.png" data-pick='scissors'>
+      <img src="images/lizard.png" data-pick='lizard'>
+      <img src="images/spock.png" data-pick='spock'>
+    </section>
+
+    <script src='lib/player.js'</script>
+    <script src='lib/game.js'</script>
+    <script src='lib/jquery-2.1.1.min.js'</script>
+
+  </body>
+</html>
+

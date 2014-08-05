@@ -159,13 +159,13 @@ describe("Rock-Paper-Scissors", function() {
     it('scissors cut paper', function(){
       player1.picks("scissors");
       player2.picks("paper");
-      expect(game.victoryMessage(player1, player2)).toEqual("Alex's scissors cuts Bob's paper");
+      expect(game.victoryMessage()).toEqual("Alex's scissors cuts Bob's paper");
     });
 
     it('player2 is the winner', function(){
       player1.picks("rock");
       player2.picks("paper");
-      expect(game.victoryMessage(player2, player1)).toEqual("Bob's paper covers Alex's rock");
+      expect(game.victoryMessage()).toEqual("Bob's paper covers Alex's rock");
     });
   });
 
