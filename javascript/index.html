@@ -31,6 +31,8 @@
 
   <body>
     <h1> Rock Paper Scissors Lizard Spock </h1>
+    <input type='text' name='name' placeholder='Type your name' id="player1Name">
+    <button id="player1Button">Play!</button>
     <section class='choices'>
       <img src="images/rock.png" data-pick='rock'>
       <img src="images/paper.png" data-pick='paper'>
@@ -44,15 +46,22 @@
         <script src='lib/jquery-2.1.1.min.js'></script>
         <script>
               $(document).ready(function(){
-                var p1 = new Player('Toan');
-                var p2 = new Player('computer');
-                var game = new Game(p1,p2);
+                $('#player1Button').on('click', function(){
+                  var p1 = new Player($('#player1Name').val());
+                  var p2 = new Player('computer');
+                  var game = new Game(p1,p2);
 
-                $('.choices img').on('click', function(){
+                  $('.choices img').on('click', function(){
                   p1.picks($(this).data('pick'));
                   p2.picks(p2.randomPick());
                   $('#result').text(game.victoryMessage());
                   });
+
+                });
+
+
+
+
               });
     </script>
   </body>
